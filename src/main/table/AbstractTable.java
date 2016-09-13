@@ -269,10 +269,7 @@ public abstract class AbstractTable implements TableAction {
         List<AbstractCol> whereCols = new LinkedList<AbstractCol>();
         whereCols.add(tbCols.get((RAND.nextInt() & (tbCols.size() - 1))));
 
-        List<AbstractCol> orderBy = new LinkedList<AbstractCol>();
-        orderBy.add(getRandKeyColIfExist());
-
-        SqlPair pair = genSelectSql(whereCols.get(0).isKeyCol, colValNum, selectCols, whereCols, null, orderBy);
+        SqlPair pair = genSelectSql(whereCols.get(0).isKeyCol, colValNum, selectCols, whereCols, null, tbCols);
         int num1 = (RAND.nextInt() & INIT_NUM);
         int num2 = (RAND.nextInt() & INIT_NUM);
         if (num1 >= num2) {
